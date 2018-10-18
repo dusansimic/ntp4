@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<button type="button" id="prvoDugme">Promeni klase</button>
+		<h1>Osnovni tipovi podtaka</h1>
+		<p>
+			Tipovi podataka se mogu podeliti u 3 grupe:
+
+			<ul>
+				<li>numericke</li>
+				<li>znakovne</li>
+				<li>logicke</li>
+			</ul>
+		</p>
+		<h1>Celobrojni tipovi</h1>
+		<p>
+			<table>
+				<tr>
+					<td>Tip</td>
+					<td>Zauzece memorije (bajt)</td>
+				</tr>
+				<tr>
+					<td>byte</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>short</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>int</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>long</td>
+					<td>8</td>
+				</tr>
+			</table>
+		</p>
+		<button type="button">Promeni boju</button>
+		<h3>Operatori</h3>
+		<p>
+			Relacijski operatori su:
+
+			<ol>
+				<li>== - ekvivalencija tj jednakost</li>
+				<li>!= - nekvivalencija tj razlicito</li>
+				<li>&lt; - manje</li>
+				<li>&gt; - vece</li>
+				<li>&lt;= - manje ili jednako</li>
+				<li>&gt;= - vece ili jednako</li>
+			</ol>
+		</p>
+		<h4>Reference</h4>
+		<p>
+			<ol id="listaReferenci">
+				<li><a href="https://msdn.microsoft.com">MSDN</a> (https://msdn.microsoft.com)</li>
+				<li><a href="https://en.wikipedia.org/wiki">Wikipedia</a> (https://en.wikipedia.org/wiki)</li>
+			</ol>
+			<button type="button" id="dugmeDodaj">Dodaj</button>
+			<button type="button" id="dugmeObrisi">Obrisi</button>
+		</p>
+
+		<style type="text/css">
+			body {
+				background: ghostwhite;
+			}
+			h1 {
+				color: goldenrod;
+			}
+			h3 {
+				color: red;
+			}
+			h4 {
+				color: #034af3;
+			}
+			table {
+				border: black solid 1px;
+			}
+			td {
+				border: black solid 1px;
+			}
+			.nova-klasa {
+				font-size: 48px;
+				color: cyan;
+			}
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$('#prvoDugme').click(() => {
+				$('h1').toggleClass('nova-klasa');
+				$('h3').toggleClass('nova-klasa');
+				$('h4').toggleClass('nova-klasa');
+			});
+
+			$('h1').click(() => {
+				$('h3').css('color', 'darkcyan');
+				$('h4').css('color', 'darkcyan');
+			});
+
+			$('#dugmeDodaj').click(() => {
+				$('#listaReferenci').append(`<li><a href="https://msdn.microsoft.com">MSDN</a> (https://msdn.microsoft.com)</li>
+				<li><a href="https://en.wikipedia.org/wiki">Wikipedia</a> (https://en.wikipedia.org/wiki)</li>`);
+			});
+			$('#dugmeObrisi').click(() => {
+				$('#listaReferenci').html('');
+			})
+		</script>
+	</body>
+</html>

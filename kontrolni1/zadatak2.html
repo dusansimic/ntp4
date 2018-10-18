@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Anketa o fizickim aktivnostima</h1>
+	<form onsubmit="return testiraj()">
+		<table>
+			<tr>
+				<td>Da li trenirate neki sport?</td>
+				<td><input type="text" name="daLiTrenira" id="daLiTrenira"></td>
+			</tr>
+			<tr>
+				<td>Ako da koji je sport u pitanju?</td>
+				<td><input type="text" name="nazivSporta" id="nazivSporta"></td>
+			</tr>
+			<tr>
+				<td>Koliko puta nedeljno idete na treninge?</td>
+				<td><input type="text" name="kolikoCesto" id="kolikoCesto"></td>
+			</tr>
+			<tr>
+				<td>Koliko imate godina?</td>
+				<td><input type="text" name="brojGodina" id="brojGodina"></td>
+			</tr>
+			<tr>
+				<td><button type="submit">Posalji rezultate</button></td>
+			</tr>
+		</table>
+	</form>
+
+	<script type="text/javascript">
+		function testiraj() {
+			const podaci = {
+				daLiTrenira: document.querySelector('#daLiTrenira').value,
+				nazivSporta: document.querySelector('#nazivSporta').value,
+				kolikoCesto: document.querySelector('#kolikoCesto').value,
+				brojGodina: document.querySelector('#brojGodina').value
+			};
+
+			if (podaci.daLiTrenira === 'ne') {
+				// Provera za godine je na kraju
+			} else if (podaci.daLiTrenira === 'da') {
+				let uneti = {
+					nazivSporta: podaci.nazivSporta === '',
+					kolikoCesto: podaci.kolikoCesto === ''
+				};
+				if (uneti.nazivSporta || uneti.kolikoCesto) {
+					alert(`Sledeci podaci se moraju uneti:${uneti.nazivSporta ? '\nnaziv sporta': ''}${uneti.kolikoCesto ? '\nkoliko cesto se bavite sportom' : ''}`);
+					return false;
+				}
+			} else {
+				alert('Morate uneti da ili ne za prvo pitanje');
+				return false;
+			}
+			if (podaci.brojGodina === '') {
+				alert('Morate uneti broj godina.');
+				return false;
+			}
+
+			location.assign('https://www.jjzmaj.edu.rs');
+			return false;
+		}
+
+		document.querySelector('h1').onmouseover = function() {
+			document.querySelector('h1').style.color = 'yellow';
+		}
+	</script>
+</body>
+</html>
